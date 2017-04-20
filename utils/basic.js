@@ -26,7 +26,7 @@ export const category = {
     zhanqi: 'https://www.zhanqi.tv/games/dnf',
     huya: 'http://www.huya.com/g/2',
     quanmin: 'http://www.quanmin.tv/json/categories/dnf/list.json',
-    longzhu: 'http://longzhu.com/channels/dnf',
+    longzhu: 'longzhu.com/channels/dnf',
   }
 }
 
