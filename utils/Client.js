@@ -1,4 +1,5 @@
 import http from 'http'
+import https from 'https'
 
 export const requestAsync = (host, port, path, method, headers, encoding = 'utf-8') => {
   const options = {
@@ -6,7 +7,8 @@ export const requestAsync = (host, port, path, method, headers, encoding = 'utf-
   }
 }
 
-export const getAsync = (url, coding = 'utf-8') => {
+export const getAsync = (url, coding = 'utf-8', isHttps = false) => {
+  let httpCli = isHttps
   return new Promise((resolve, reject) => {
     http.get(url, ret => {
       let html = ""
