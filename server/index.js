@@ -1,7 +1,7 @@
 // import {search} from '../utils/search'
 import express from 'express'
 import {search} from '../utils/search'
-
+import {douyuAna} from '../utils/dom-ana'
 
 let app = express();
 
@@ -19,15 +19,7 @@ app.use('/:id', function (req, res, next) {
 
 // 路由和句柄函数(中间件系统)，处理指向 /user/:id 的 GET 请求
 app.get('/:id', function (req, res, next) {
-  search('dnf', 'longzhu').then((ret) => {
-
-    res.send(ret)
-  })
-});
-
-app.get('/:id', function (req, res, next) {
-  search('dnf', 'longzhu').then((ret) => {
-
+  search('dnf', 'douyu',true).then((ret) => {
     res.send(ret)
   })
 });

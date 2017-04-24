@@ -7,10 +7,12 @@ export const requestAsync = (host, port, path, method, headers, encoding = 'utf-
   }
 }
 
-export const getAsync = (url, coding = 'utf-8', isHttps = false) => {
-  let httpCli = isHttps
+const httpActions = [http, https]
+
+export const getAsync = (url, isHttps = false, coding = 'utf-8') => {
+  isHttps = !!isHttps ? 1 : 0
   return new Promise((resolve, reject) => {
-    http.get(url, ret => {
+    httpActions[isHttps].get(url, ret => {
       let html = ""
       ret.setEncoding(coding)
       ret.on("data", chunk => {
@@ -23,9 +25,4 @@ export const getAsync = (url, coding = 'utf-8', isHttps = false) => {
       reject(e)
     })
   })
-}
-
-export default {
-  requestAsync,
-  getAsync
 }

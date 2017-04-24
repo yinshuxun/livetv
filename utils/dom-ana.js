@@ -2,8 +2,7 @@
  *  Reference resources from live-streaming-crawler
  */
 import cheerio from 'cheerio';
-
-
+import {transformAudienceNumber} from '../utils/utils'
 /**
  *
  * 搜索斗鱼的方法
@@ -15,23 +14,44 @@ import cheerio from 'cheerio';
  * @param {string} keyword - 搜索的关键字
  * @return {Promise.<Array.<Object>>}
  */
-const douyuAna = text => {
-  let $ = cheerio.load(text);
+export const douyuAna = text => {
   let liveJson = [];
-  $('#search-room-list a').each((idx, ele) => {
+  let $ = cheerio.load(text);
+  $('#live-list-contentbox li a').each((idx, ele) => {
     ele = $(ele);
+    let audienceText = $(ele.find('.dy-num')[0]).text();
     liveJson.push({
       title: ele.attr('title'),
-      audienceNumber: transformAudienceNumber($(ele.find('.dy-num')[0]).text()),
+      anchor: $(ele.find('.dy-name')[0]).text(),
+      audienceNumber: transformAudienceNumber(audienceText),
       snapshot: $(ele.find('.imgbox img')[0]).attr('data-original'),
       url: 'https://www.douyu.com' + ele.attr('href'),
       platformIcon: '/images/icon1.png',
-      anchor: $(ele.find('h3.ellipsis')[0]).text(),
-      category: $(ele.find('.tag')[0]).text(),
-      onlineFlag: Boolean($(ele.find('.icon_live')).length),
     });
   });
   return liveJson
 }
 
-export default {}
+/**
+ * 搜索龙珠的方法
+ * live字段为其直播信息
+ * live.isLive 表示是否正在直播
+ * 有点缺陷就是没有直播截图
+ * 因为不知道为什么用superagent获取不了，所以用了request
+ *
+ * @async
+ * @param {string} keyword - 搜索的关键字
+ * @return {Promise.<Array.<Object>>}
+ */
+export const longzhuAna = text => {
+  return JSON.parse(text).items.map((item) => ({
+    title: item.live.title,
+    audienceNumber: item.live.onlineCount,
+    // snapshot: item.game_screenshot,
+    url: `http://star.longzhu.com/${item.live.url}`,
+    platformIcon: '/images/icon6.png',
+    anchor: item.name,
+    category: item.gameName,
+    onlineFlag: item.live.isLive,
+  }))
+}
