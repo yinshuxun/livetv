@@ -13,3 +13,7 @@ export const analysisUrl = (cate, plat) => {
 export const transformAudienceNumber = text => {
   return text.indexOf('万') > 0 ? text.replace(/万/, '') * 10000 : text;
 }
+
+export const isHttps = url => {
+  return url.indexOf('https') > -1
+}
