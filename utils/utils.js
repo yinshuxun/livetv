@@ -15,5 +15,5 @@ export const transformAudienceNumber = text => {
 }
 
 export const isHttps = url => {
-  return url.indexOf('https') > -1
+  return typeof url === "string" && url.indexOf('https') > -1
 }

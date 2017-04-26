@@ -2,8 +2,6 @@ import http from 'http'
 import https from 'https'
 import {isHttps} from '../utils/utils'
 
-const httpActions = [http, https][+isHttps]
-
 export const requestAsync = (host, port, path, method, headers, encoding = 'utf-8') => {
   const options = {
     host, port, path, method, headers
@@ -12,6 +10,7 @@ export const requestAsync = (host, port, path, method, headers, encoding = 'utf-
 
 export const getAsync = (url, coding = 'utf-8') => {
   return new Promise((resolve, reject) => {
+    const httpActions = [http, https][+isHttps(url)]
     httpActions.get(url, ret => {
       let html = ""
       ret.setEncoding(coding)
