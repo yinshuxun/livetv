@@ -19,23 +19,23 @@ app.use(function (req, res, next) {
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
+    next();
 });
 
 // 挂载至 /user/:id 的中间件，任何指向 /user/:id 的请求都会执行它
-app.use('/:id', function (req, res, next) {
-  console.log('Request Type:', req.method);
-  next();
+app.use('/:id/:plat', function (req, res, next) {
+    console.log('Request Type:', req.method);
+    next();
 });
 
 // 路由和句柄函数(中间件系统)，处理指向 /user/:id 的 GET 请求
-app.get('/:id', function (req, res, next) {
-  search('dnf', 'douyu').then((ret) => {
-    res.send(douyuAna(ret))
-  })
+app.get('/:cate/:plat', function (req, res, next) {
+    search(req.params.cate, req.params.plat).then((ret) => {
+        res.send(douyuAna(ret))
+    })
 });
 
 
 app.listen(3000, (req) => {
-  console.log(`server is starton `)
+    console.log(`server is starton `)
 });
