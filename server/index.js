@@ -1,6 +1,6 @@
 // import {search} from '../utils/search'
 import express from 'express'
-import {search} from '../utils/Search.js'
+import {search} from '../utils/search.js'
 import {douyuAna} from '../utils/dom-ana.js'
 
 let app = express();
