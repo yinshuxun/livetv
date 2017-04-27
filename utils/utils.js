@@ -1,7 +1,7 @@
 import {category, platform} from './basic.js'
 
-export const analysisUrl = (cate, plat) => {
-  return category[cate][plat]
+export const categorySearch = (cate, plat) => {
+  return encodeURI(category[cate][plat])
 }
 
 /**

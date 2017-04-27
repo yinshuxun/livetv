@@ -1,6 +1,6 @@
 import {search} from '../utils/search'
-import {douyuAna} from '../utils/dom-ana'
+import {ana} from '../utils/dom-ana'
 
-search('dnf', 'douyu', true).then((ret) => {
-  console.log(douyuAna(ret))
+search('dnf', 'panda').then((ret) => {
+    console.log(ana('panda', ret))
 })
