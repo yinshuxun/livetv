@@ -23,13 +23,13 @@ app.use(function (req, res, next) {
 });
 
 // 挂载至 /user/:id 的中间件，任何指向 /user/:id 的请求都会执行它
-app.use('liveapi/:id/:plat', function (req, res, next) {
+app.use('/liveapi/:id/:plat', function (req, res, next) {
     console.log('Request Type:', req.method);
     next();
 });
 
 // 路由和句柄函数(中间件系统)，处理指向 /user/:id 的 GET 请求
-app.get('liveapi/:cate/:plat', function (req, res, next) {
+app.get('/liveapi/:cate/:plat', function (req, res, next) {
     search(req.params.cate, req.params.plat).then((ret) => {
         res.send(ana(req.params.plat, ret))
     })
