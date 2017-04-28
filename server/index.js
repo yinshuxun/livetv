@@ -37,5 +37,5 @@ app.get('/liveapi/:cate/:plat', function (req, res, next) {
 
 
 app.listen(3000, (req) => {
-    console.log(`server is starton `)
+    console.log(`server is starton on 3000`)
 });
