@@ -30,9 +30,11 @@ app.use('/liveapi/:id/:plat', function (req, res, next) {
 
 // 路由和句柄函数(中间件系统)，处理指向 /user/:id 的 GET 请求
 app.get('/liveapi/:cate/:plat', function (req, res, next) {
+    const s = Date.now()
     search(req.params.cate, req.params.plat).then((ret) => {
         res.send(ana(req.params.plat, ret))
     })
+    console.log(`api cost ${Date.now() - s}ms`)
 });
 
 
