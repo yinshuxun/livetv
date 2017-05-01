@@ -1,22 +1,33 @@
+# livetv
 
-Application created by [ThinkJS](http://www.thinkjs.org)
 
-## Install dependencies
 
+## QuickStart
+
+<!-- add docs here for user -->
+
+see [egg docs][egg] for more detail.
+
+### Development
+```shell
+$ npm install
+$ npm run dev
+$ open http://localhost:7001/news
 ```
-npm install
+
+### Deploy
+
+Use `EGG_SERVER_ENV=prod` to enable prod mode
+
+```shell
+$ EGG_SERVER_ENV=prod npm start
 ```
 
-## Start server
+### npm scripts
 
-```
-npm start
-```
+- Use `npm run lint` to check code style.
+- Use `npm test` to run unit test.
+- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
 
-## Deploy with pm2
 
-Use pm2 to deploy app on production enviroment.
-
-```
-pm2 startOrReload pm2.json
-```
+[egg]: https://eggjs.org
