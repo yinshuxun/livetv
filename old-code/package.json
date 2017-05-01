@@ -4,8 +4,8 @@
   "description": "back end to decribe a node server ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node --harmony server",
+    "test": "babel-node --harmony test",
+    "server": "babel-node --harmony server",
     "precommit": "lint-staged"
   },
   "lint-staged": {
