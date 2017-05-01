@@ -5,16 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "babel-node --harmony test",
-    "server": "babel-node --harmony server",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "gitDir": ".",
-    "linters": {
-      "../livetv/**/*.js": [
-        "prettier --single-quote --print-width=90 --trailing-comma=all --write"
-      ]
-    }
+    "server": "babel-node --harmony server"
   },
   "author": "",
   "license": "ISC",
@@ -28,7 +19,6 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
     "husky": "^0.13.3",
-    "lint-staged": "^3.4.0",
     "prettier": "^1.2.2",
     "require": "^2.4.20"
   }
