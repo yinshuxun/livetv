@@ -4,5 +4,6 @@
     "stage-1"
   ],
   "plugins": ["transform-runtime"],
+
   "sourceMaps": true
 }
