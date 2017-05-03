@@ -1,7 +1,9 @@
 {
   "presets": [
-    "es2015",
-    "stage-0"
+    ["es2015", {"loose": true}],
+    "stage-1"
   ],
-  "plugins": []
+  "plugins": ["transform-runtime"],
+
+  "sourceMaps": true
 }

@@ -35,7 +35,6 @@ app.use(function (req, res, next) {
 
 // 挂载至 /user/:id 的中间件，任何指向 /user/:id 的请求都会执行它
 app.use('/liveapi/:id/:plat', function (req, res, next) {
-
     console.log('Request Type:', req.method);
     next();
 });
