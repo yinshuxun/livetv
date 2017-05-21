@@ -3,6 +3,8 @@ Application created by [ThinkJS](http://www.thinkjs.org)
 
 ## Install dependencies
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yinshuxun/livetv.svg)](https://greenkeeper.io/)
+
 ```
 npm install
 ```
