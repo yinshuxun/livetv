@@ -4,8 +4,9 @@
   "description": "back end to decribe a node server ",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node --harmony test",
-    "server": "babel-node --harmony server",
+    "test": "babel- --harmony test",
+    "server": "node --harmony server",
+    "pm2": "pm2 start processes.json",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.3.0",
     "prettier": "^1.7.4",
